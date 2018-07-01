@@ -14,6 +14,12 @@ prism_password: secret      # The password to your account, Note, you should not
 cluster_name: "Your Cluster"      # Name of the cluster to provision against
 subnet_name: "VMNet"              # Name of the Subnet (vlan) to add VMs to
 image_name: "RHEL_Server_7.5"     # Name of the disk image or ISO to use
+
+# A list of dicts that define the VMs you want created
+# Note, you can break this into several separate lists and override vm_defs when calling the role to loop across
+# several sets of VMs.
+vm_defs:
+  - {vm_name: my-vm-01, vm_ip: '172.16.1.111', vm_ram: 8192, vm_num_cpu_per_socket: 1, vm_num_sockets: 1, vm_disk_list: [disk_size_mib: 152588]}
 ```
 
 
