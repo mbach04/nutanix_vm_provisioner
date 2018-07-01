@@ -41,7 +41,7 @@
   with_items: "{{ vms_uuids }}"
 
 - name: Debug | Print hostvars
- debug:
-   var: hostvars
- when: global_debug
+  debug:
+    var: hostvars
+  when: global_debug
   

@@ -56,7 +56,7 @@
   register: vm_uuids
   when: global_debug
 
- - name: Debug | Print VM uuids 
-   debug:
+- name: Debug | Print VM uuids 
+  debug:
     var: vm_uuids
   when: global_debug
