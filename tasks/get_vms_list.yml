@@ -1,0 +1,47 @@
+---
+  
+- name: Get VMS list
+  uri:
+    url: "{{ api_url_v3 }}/vms/list"
+    body:
+      kind: vm
+      sort_order: ASCENDING
+      offset: 0
+      length: 1000
+      sort_attribute: ''
+    method: POST
+    validate_certs: no
+    body_format: json
+    status_code: 200
+    headers: 
+      Cookie: "{{ session_cookie }}"
+  register: vms_result
+  ignore_errors: yes
+
+- name: Debug | Print VMs List
+  debug:
+    var: vms_result
+  when: global_debug
+  
+- name: Stash the VM UUIDs
+  set_fact:
+    vms_uuids: "{{ vms_uuids|default([]) + [{'name': item.spec.name, 'uuid': item.metadata.uuid}] }}"
+  with_items: "{{ vms_result.json.entities }}"
+
+- name: Debug | Print VMs UUIDs
+  debug:
+    var: vms_uuids
+  when: global_debug
+
+- name: Add the list of vms to hosts
+  add_host:
+    name: "{{ item.name }}"
+    groups: openshift
+    uuid: "{{ item.uuid }}"
+  with_items: "{{ vms_uuids }}"
+
+- name: Debug | Print hostvars
+ debug:
+   var: hostvars
+ when: global_debug
+  

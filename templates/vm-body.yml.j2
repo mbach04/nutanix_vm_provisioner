@@ -1,0 +1,31 @@
+api_version: '3.0'
+metadata:
+  kind: vm
+spec:
+  cluster_reference:
+    kind: cluster
+    uuid: {{ cluster_uuid }}
+  name: {{ vm.vm_name }}
+  resources:
+    disk_list:
+    - data_source_reference:
+        kind: image
+        uuid: {{ image_uuid }}
+{% for disk in vm.vm_disk_list %}
+{% for k,v in disk.iteritems() %}
+    - {{ k }}: {{ v }}
+{% endfor %}
+{% endfor %}
+    memory_size_mib: {{ vm.vm_ram }}
+    nic_list:
+    - ip_endpoint_list:
+      - ip: {{ vm.vm_ip }}
+      subnet_reference:
+        kind: subnet
+        uuid: {{ subnet_uuid }}
+    num_sockets: {{ vm.vm_num_sockets }}
+    num_vcpus_per_socket: {{ vm.vm_num_cpu_per_socket }}
+    power_state: 'ON'
+    guest_customization:
+      cloud_init:
+        user_data: {{ lookup('template','cloud-init.yml.j2') | b64encode }}

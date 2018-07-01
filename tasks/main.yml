@@ -1,0 +1,8 @@
+---
+# tasks file for nutanix_provisioner
+- import_tasks: get_session_cookie.yml
+- import_tasks: get_cluster_uuids.yml
+- import_tasks: get_subnet_uuids.yml
+- import_tasks: get_image_uuids.yml
+- import_tasks: define_uuids_from_names.yml
+- import_tasks: provision_vm.yml

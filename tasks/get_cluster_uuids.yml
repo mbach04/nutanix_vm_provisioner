@@ -1,0 +1,36 @@
+---
+#Queries the Nutanix API endpoint for a list of clusters
+#Returns a list of dictionaries containing the name and uuid of the clusters
+#Example output:
+# [
+#   {'name': 'clusterA', 'uuid': '00056e15-0223-d74a-497a-ecf4bbd9b8f0'},
+#   {'name': 'clusterB', 'uuid': '00056e15-0223-d74a-497a-ecf4bbd9b8f1'}
+# ]
+  
+- name: Get clusters list
+  uri:
+    url: "{{ api_url_v3 }}/clusters/list"
+    body:
+      kind: cluster
+      sort_order: ASCENDING
+      offset: 0
+      length: 10
+      sort_attribute: ''
+    method: POST
+    validate_certs: no
+    body_format: json
+    status_code: 200
+    headers: 
+      Cookie: "{{ session_cookie }}"
+  register: json_clusters_result
+  ignore_errors: yes
+
+- name: Stash the Cluster UUIDs
+  set_fact:
+    cluster_uuids: "{{ cluster_uuids|default([]) + [ {'name': item.spec.name, 'uuid': item.metadata.uuid } ] }}"
+  with_items: "{{ json_clusters_result.json.entities }}"
+
+- name: Debug | Print cluster name/UUIDs
+  debug:
+    var: cluster_uuids
+  when: global_debug

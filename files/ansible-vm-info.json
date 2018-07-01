@@ -1,0 +1,178 @@
+{
+    "api_version": "3.0",
+    "metadata": {
+      "kind": "vm",
+      "total_matches": 1,
+      "sort_attribute": "",
+      "length": 1,
+      "sort_order": "ASCENDING",
+      "offset": 0
+    },
+    "entities": [
+      {
+        "status": {
+          "state": "COMPLETE",
+          "cluster_reference": {
+            "kind": "cluster",
+            "uuid": "00056e15-0223-d74a-497a-ecf4bbd9b8f0",
+            "name": "SOFATL"
+          },
+          "description": "Ansible Bastion Host",
+          "resources": {
+            "vnuma_config": {
+              "num_vnuma_nodes": 0
+            },
+            "nic_list": [
+              {
+                "ip_endpoint_list": [
+                  {
+                    "ip": "172.29.170.200",
+                    "type": "LEARNED"
+                  }
+                ],
+                "nic_type": "NORMAL_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "name": "VM1",
+                  "uuid": "3684e505-7f21-4ee2-8550-cc34b1908de7"
+                },
+                "uuid": "d8f565fc-4c7e-47fa-b58f-4937776410fd",
+                "mac_address": "50:6b:8d:b3:ed:fc"
+              }
+            ],
+            "host_reference": {
+              "kind": "host",
+              "uuid": "6faebf95-d3f3-4f26-957e-17c9a4ec8888",
+              "name": "172.29.171.1"
+            },
+            "num_vcpus_per_socket": 1,
+            "num_sockets": 4,
+            "gpu_list": [],
+            "memory_size_mib": 16384,
+            "power_state": "ON",
+            "hardware_clock_timezone": "UTC",
+            "power_state_mechanism": {
+              "mechanism": "HARD"
+            },
+            "vga_console_enabled": true,
+            "disk_list": [
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 0,
+                    "adapter_type": "SCSI"
+                  },
+                  "device_type": "DISK"
+                },
+                "uuid": "a17119c9-b08d-472d-8409-c0d5156267ea",
+                "disk_size_bytes": 64424509440,
+                "disk_size_mib": 61440
+              },
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 1,
+                    "adapter_type": "SCSI"
+                  },
+                  "device_type": "DISK"
+                },
+                "uuid": "8a736881-b68b-47bd-baaf-989ddd14918b",
+                "disk_size_bytes": 161061273600,
+                "disk_size_mib": 153600
+              },
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 0,
+                    "adapter_type": "IDE"
+                  },
+                  "device_type": "CDROM"
+                },
+                "uuid": "07bbd980-4f59-4a9c-993c-6d51e35c52d1"
+              }
+            ]
+          },
+          "name": "Ansible"
+        },
+        "spec": {
+          "cluster_reference": {
+            "kind": "cluster",
+            "name": "SOFATL",
+            "uuid": "00056e15-0223-d74a-497a-ecf4bbd9b8f0"
+          },
+          "description": "Ansible Bastion Host",
+          "resources": {
+            "vnuma_config": {
+              "num_vnuma_nodes": 0
+            },
+            "nic_list": [
+              {
+                "ip_endpoint_list": [],
+                "nic_type": "NORMAL_NIC",
+                "subnet_reference": {
+                  "kind": "subnet",
+                  "name": "VM1",
+                  "uuid": "3684e505-7f21-4ee2-8550-cc34b1908de7"
+                },
+                "uuid": "d8f565fc-4c7e-47fa-b58f-4937776410fd",
+                "mac_address": "50:6b:8d:b3:ed:fc"
+              }
+            ],
+            "num_vcpus_per_socket": 1,
+            "num_sockets": 4,
+            "gpu_list": [],
+            "memory_size_mib": 16384,
+            "power_state": "ON",
+            "hardware_clock_timezone": "UTC",
+            "power_state_mechanism": {
+              "mechanism": "HARD"
+            },
+            "vga_console_enabled": true,
+            "disk_list": [
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 0,
+                    "adapter_type": "IDE"
+                  },
+                  "device_type": "CDROM"
+                },
+                "uuid": "07bbd980-4f59-4a9c-993c-6d51e35c52d1"
+              },
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 0,
+                    "adapter_type": "SCSI"
+                  },
+                  "device_type": "DISK"
+                },
+                "uuid": "a17119c9-b08d-472d-8409-c0d5156267ea",
+                "disk_size_bytes": 64424509440,
+                "disk_size_mib": 61440
+              },
+              {
+                "device_properties": {
+                  "disk_address": {
+                    "device_index": 1,
+                    "adapter_type": "SCSI"
+                  },
+                  "device_type": "DISK"
+                },
+                "uuid": "8a736881-b68b-47bd-baaf-989ddd14918b",
+                "disk_size_bytes": 161061273600,
+                "disk_size_mib": 153600
+              }
+            ]
+          },
+          "name": "Ansible"
+        },
+        "metadata": {
+          "kind": "vm",
+          "spec_version": 0,
+          "uuid": "93183a6a-1596-440d-a1f2-93b517c38ed2",
+          "categories": {}
+        }
+      }
+    ]
+  }

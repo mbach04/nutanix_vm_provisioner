@@ -1,0 +1,38 @@
+{
+  "api_version": "3.0",
+  "metadata": {
+      "kind": "vm"
+  },
+  "spec": {
+      "cluster_reference": {
+          "kind": "cluster",
+          "uuid": "00056e15-0223-d74a-497a-ecf4bbd9b8f0"
+      },
+      "name": "automation-test",
+      "resources": {
+          "memory_size_mib": 1024,
+          "nic_list": [
+              {
+                  "subnet_reference": {
+                      "kind": "subnet",
+                      "uuid": "3684e505-7f21-4ee2-8550-cc34b1908de7"
+                  }
+              }
+          ],
+          "disk_list": [
+              {
+                  "data_source_reference": {
+                      "kind": "image",
+                      "uuid": "ffdf0075-feb6-49d4-9c4b-3e836901b225"
+                  },
+                  "device_properties": {
+                      "device_type": "DISK"
+                  }
+              }
+          ],
+          "num_sockets": 1,
+          "num_vcpus_per_socket": 1,
+          "power_state": "ON"
+      }
+  }
+}
