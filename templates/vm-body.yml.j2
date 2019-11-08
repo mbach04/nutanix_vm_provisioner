@@ -12,7 +12,7 @@ spec:
         kind: image
         uuid: {{ image_uuid }}
 {% for disk in vm.vm_disk_list %}
-{% for k,v in disk.iteritems() %}
+{% for k,v in disk.items() %}
     - {{ k }}: {{ v }}
 {% endfor %}
 {% endfor %}
