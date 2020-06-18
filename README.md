@@ -45,7 +45,7 @@ Example Playbook
   vars:
     my_vms:
       - {vm_name: server1, vm_ip: '172.29.171.100', vm_ram: 4096, vm_num_cpu_per_socket: 1, vm_num_sockets: 4, vm_disk_list: [disk_size_mib: 76294, disk_size_mib: 152588]}
-      - {vm_name: server1, vm_ip: '172.29.171.100', vm_ram: 4096, vm_num_cpu_per_socket: 1, vm_num_sockets: 4, vm_disk_list: [disk_size_mib: 76294, disk_size_mib: 152588]}
+      - {vm_name: server2, vm_ip: '172.29.171.101', vm_ram: 4096, vm_num_cpu_per_socket: 1, vm_num_sockets: 4, vm_disk_list: [disk_size_mib: 76294, disk_size_mib: 152588]}
   tasks:
     - name: Provision VMs on Nutanix
       include_role:
